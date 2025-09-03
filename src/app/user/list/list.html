@@ -1,1 +1,10 @@
-<p>list works!</p>
+<ul>
+    @for (b of billionaires; track $index; let i = $index){
+        <li>
+            {{i}} - {{b.name}} - ({{b.net_worth | number}}$)
+            <a [routerLink]="['/user', i]">Details</a>
+        </li>
+    } @empty {
+        <li>No billionaires found</li>
+    }
+</ul>

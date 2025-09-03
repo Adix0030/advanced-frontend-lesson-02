@@ -1,11 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { BillionaireService, Billionaire } from '../../billionaire-service';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-list',
-  imports: [],
-  templateUrl: './list.html',
-  styleUrl: './list.css'
+  standalone: true,
+  imports: [CommonModule, RouterModule],
+  templateUrl: './list.html'
 })
-export class List {
+export class List implements OnInit {
+  billionaires: Billionaire[] = [];
 
+  constructor(private billionaireService: BillionaireService) {}
+
+  ngOnInit() {
+    this.billionaires = this.billionaireService.billionaires;
+  }
 }
