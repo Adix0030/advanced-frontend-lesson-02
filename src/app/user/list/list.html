@@ -1,8 +1,8 @@
 <ul>
-    @for (b of billionaires; track $index; let i = $index){
+    @for (b of billionaires; track $index){
         <li>
-            {{i}} - {{b.name}} - ({{b.net_worth | number}}$)
-            <a [routerLink]="['/user', i]">Details</a>
+            {{b.name}}
+            <a [routerLink]="[$index]">Details</a>
         </li>
     } @empty {
         <li>No billionaires found</li>
