@@ -3,6 +3,9 @@ import { Home } from './home/home';
 import { PageNotFound } from './page-not-found/page-not-found';
 
 export const routes: Routes = [
-    {path:'',component: Home},
-    {path:'**',component: PageNotFound}
+    {path:'', component: Home},
+    {path:'user',
+        loadChildren: () => 
+            import('./user/user-module').then(m => m.UserModule)},
+    {path:'**', component: PageNotFound}
 ];
